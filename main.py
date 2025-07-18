@@ -43,6 +43,15 @@ for pendente_pos in pendente_occurrences:
         autogui.moveTo(ncm_pos)
         autogui.click()
 
+        # Pressiona Ctrl + A
+        autogui.hotkey('ctrl', 'a')
+
+        # Pressiona Backspace
+        autogui.press('backspace')
+
+        # Digita o NCM
+        autogui.write('3926.40.00', interval=0.05)
+
 
 
 
