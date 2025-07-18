@@ -7,7 +7,7 @@ import time
 tess.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 # VARIABLES
-pendente_img = "imgs/pendente.png" #missing
+pendente_img = "imgs/pendente.png"
 desconto_img = "imgs/desconto.png"
 kit_item = "imgs/kit_item.png"
 max_scrolls = 10
