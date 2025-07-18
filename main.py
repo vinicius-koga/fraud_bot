@@ -32,6 +32,7 @@ for pendente_pos in pendente_occurrences:
     # Lista todos os kits encontrados
     kit_occurrences = list(autogui.locateAllOnScreen(kit_item, confidence=0.9))
     for kit_pos in kit_occurrences:
+        # Clica no kit
         centro = autogui.center(kit_pos)
         autogui.moveTo(centro)
         autogui.click()
