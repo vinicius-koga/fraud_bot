@@ -24,9 +24,7 @@ for pendente_pos in pendente_occurrences:
     autogui.click()
 
     time.sleep(2)
-
     autogui.scroll(-500)
-
     time.sleep(2)
 
     # Lista todos os kits encontrados
@@ -36,6 +34,7 @@ for pendente_pos in pendente_occurrences:
         centro = autogui.center(kit_pos)
         autogui.moveTo(centro)
         autogui.click()
+        
         time.sleep(2)
 
 
