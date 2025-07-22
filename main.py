@@ -11,7 +11,7 @@ desconto_img = "imgs/desconto.png" # !
 kit_item = "imgs/kit_item.png"
 ncm_item = "imgs/ncm.png"
 valor_item = "imgs/valor.png"
-max_scrolls = 10
+# max_scrolls = 10
 
 # SCRIPT
 time.sleep(2)
@@ -57,24 +57,18 @@ for pendente_pos in pendente_occurrences:
         autogui.moveTo(valor_pos)
         autogui.click()
 
+        # Pressiona Ctrl + A
+        autogui.hotkey('ctrl', 'a')
+
+        # Copia o valor
+        autogui.hotkey('ctrl', 'c')
+        time.sleep(0.1)
+
+        # Digita valor / 10
+        valor_str = clip.paste()
+        valor_float = float(valor_str.replace(",", "."))
+        valor_div = valor_float / 10
+        valor_final = str(valor_div).replace(".", ",")
+        autogui.write(valor_final, interval=0.05)
+
         exit()
-
-
-
-
-
-
-
-
-
-
-
-# Scrolla até encontrar
-# for _ in range(max_scrolls):
-#     encontrou = autogui.locateCenterOnScreen(img, confidence=0.8)
-#     if encontrou:
-#         autogui.moveTo(encontrou)
-#         break
-#     else:
-#         autogui.scroll(-300)
-#         time.sleep(0.5)
