@@ -2,9 +2,8 @@
 
 # IMPORTS
 import pyautogui as autogui
-import pytesseract as tess
+import pyperclip as clip
 import time
-tess.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 # VARIABLES
 pendente_img = "imgs/pendente.png"
