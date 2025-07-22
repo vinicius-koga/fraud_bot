@@ -8,9 +8,10 @@ tess.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 # VARIABLES
 pendente_img = "imgs/pendente.png"
-desconto_img = "imgs/desconto.png"
+desconto_img = "imgs/desconto.png" # !
 kit_item = "imgs/kit_item.png"
 ncm_item = "imgs/ncm.png"
+valor_item = "imgs/valor.png"
 max_scrolls = 10
 
 # SCRIPT
@@ -51,6 +52,13 @@ for pendente_pos in pendente_occurrences:
 
         # Digita o NCM
         autogui.write('3926.40.00', interval=0.05)
+
+        # Clica no valor
+        valor_pos = autogui.locateCenterOnScreen(valor_item, confidence=0.9)
+        autogui.moveTo(valor_pos)
+        autogui.click()
+
+        exit()
 
 
 
