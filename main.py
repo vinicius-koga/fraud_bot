@@ -17,7 +17,6 @@ nacional_2_img = "imgs/nacional_2.png"
 salvar_1_img = "imgs/salvar_1.png"
 desconto_img = "imgs/desconto.png"
 valor_frete_img = "imgs/valor_frete.png"
-# max_scrolls = 10
 
 # SCRIPT
 time.sleep(2)
@@ -30,7 +29,8 @@ for pendente_pos in pendente_occurrences:
     autogui.moveTo(centro)
     autogui.click()
 
-    time.sleep(0.5)
+    # Scroll
+    time.sleep(2)
     autogui.scroll(-500)
     time.sleep(0.5)
 
@@ -42,20 +42,16 @@ for pendente_pos in pendente_occurrences:
         autogui.moveTo(centro)
         autogui.click()
         
-        time.sleep(0.5)
+        time.sleep(1)
 
         # Clica no NCM
         ncm_pos = autogui.locateCenterOnScreen(ncm_img, confidence=0.9)
         autogui.moveTo(ncm_pos)
         autogui.click()
 
-        # Pressiona Ctrl + A
-        autogui.hotkey('ctrl', 'a')
-
-        # Pressiona Backspace
-        autogui.press('backspace')
-
         # Digita o NCM
+        autogui.hotkey('ctrl', 'a')
+        autogui.press('backspace')
         autogui.write('3926.40.00', interval=0.05)
 
         # Clica no valor
@@ -101,12 +97,13 @@ for pendente_pos in pendente_occurrences:
         autogui.moveTo(salvar_1_pos)
         autogui.click()
 
-        time.sleep(0.5)
+        time.sleep(1)
 
         # Clica em desconto
         desconto_pos = autogui.locateCenterOnScreen(desconto_img, confidence=0.9)
         autogui.moveTo(desconto_pos)
         autogui.click()
+        time.sleep(0.1)
 
         # Digita 0
         autogui.hotkey('ctrl', 'a')
@@ -116,6 +113,8 @@ for pendente_pos in pendente_occurrences:
         # Clica em valor do frete
         valor_frete_pos = autogui.locateCenterOnScreen(valor_frete_img, confidence=0.9)
         autogui.moveTo(valor_frete_pos)
+        autogui.click()
+        time.sleep(0.5)
         autogui.click()
 
         # Digita 0
