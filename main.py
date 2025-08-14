@@ -23,7 +23,7 @@ salvar_2_img = "imgs/salvar_2.png"
 time.sleep(2)
 
 # Lista todos os pendentes encontrados
-pendente_occurrences = list(autogui.locateAllOnScreen(pendente_img, confidence=0.9))
+pendente_occurrences = list(autogui.locateAllOnScreen(pendente_img, confidence=0.8))
 for pendente_pos in pendente_occurrences:
     time.sleep(2)
     # Clica no icone (pendente)
@@ -33,7 +33,7 @@ for pendente_pos in pendente_occurrences:
 
     # Scroll down
     time.sleep(1)
-    autogui.scroll(-500)
+    autogui.scroll(-150)
     time.sleep(0.5)
 
     # Lista todos os kits encontrados
@@ -101,37 +101,37 @@ for pendente_pos in pendente_occurrences:
 
         time.sleep(1)
 
-        # Clica em desconto
-        desconto_pos = autogui.locateCenterOnScreen(desconto_img, confidence=0.9)
-        autogui.moveTo(desconto_pos)
-        autogui.click()
-        time.sleep(0.1)
+    # Clica em desconto
+    desconto_pos = autogui.locateCenterOnScreen(desconto_img, confidence=0.9)
+    autogui.moveTo(desconto_pos)
+    autogui.click()
+    time.sleep(0.1)
 
-        # Digita 0
-        autogui.hotkey('ctrl', 'a')
-        autogui.press('backspace')
-        autogui.write('0', interval=0.05)
+    # Digita 0
+    autogui.hotkey('ctrl', 'a')
+    autogui.press('backspace')
+    autogui.write('0', interval=0.05)
 
-        # Clica em valor do frete
-        valor_frete_pos = autogui.locateCenterOnScreen(valor_frete_img, confidence=0.9)
-        autogui.moveTo(valor_frete_pos)
-        autogui.click()
-        time.sleep(0.5)
-        autogui.click()
+    # Clica em valor do frete
+    valor_frete_pos = autogui.locateCenterOnScreen(valor_frete_img, confidence=0.9)
+    autogui.moveTo(valor_frete_pos)
+    autogui.click()
+    time.sleep(1)
+    autogui.click()
 
-        # Digita 0
-        autogui.hotkey('ctrl', 'a')
-        autogui.press('backspace')
-        autogui.write('0', interval=0.05)
+    # Digita 0
+    autogui.hotkey('ctrl', 'a')
+    autogui.press('backspace')
+    autogui.write('0', interval=0.05)
 
-        # Scroll up
-        time.sleep(0.5)
-        autogui.scroll(500)
-        time.sleep(1)
+    # Scroll up
+    time.sleep(0.5)
+    autogui.scroll(300)
+    time.sleep(1)
 
-        # Clica em salvar_2
-        salvar_2_pos = autogui.locateCenterOnScreen(salvar_2_img, confidence=0.9)
-        autogui.moveTo(salvar_2_pos)
-        autogui.click()
-        time.sleep(0.5)
-        autogui.click()
+    # Clica em salvar_2
+    salvar_2_pos = autogui.locateCenterOnScreen(salvar_2_img, confidence=0.9)
+    autogui.moveTo(salvar_2_pos)
+    autogui.click()
+    time.sleep(0.5)
+    autogui.click()
