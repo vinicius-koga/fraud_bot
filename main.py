@@ -32,7 +32,7 @@ for pendente_pos in pendente_occurrences:
     autogui.click()
 
     # Scroll down
-    time.sleep(1)
+    time.sleep(1.5)
     autogui.scroll(-150)
     time.sleep(0.5)
 
