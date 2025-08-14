@@ -1,5 +1,4 @@
 # run --> pip install -r requirements.txt
-# git test
 
 # IMPORTS
 import pyautogui as autogui
@@ -18,6 +17,7 @@ nacional_2_img = "imgs/nacional_2.png"
 salvar_1_img = "imgs/salvar_1.png"
 desconto_img = "imgs/desconto.png"
 valor_frete_img = "imgs/valor_frete.png"
+salvar_2_img = "imgs/salvar_2.png"
 
 # SCRIPT
 time.sleep(2)
@@ -25,13 +25,14 @@ time.sleep(2)
 # Lista todos os pendentes encontrados
 pendente_occurrences = list(autogui.locateAllOnScreen(pendente_img, confidence=0.9))
 for pendente_pos in pendente_occurrences:
+    time.sleep(2)
     # Clica no icone (pendente)
     centro = autogui.center(pendente_pos)
     autogui.moveTo(centro)
     autogui.click()
 
-    # Scroll
-    time.sleep(2)
+    # Scroll down
+    time.sleep(1)
     autogui.scroll(-500)
     time.sleep(0.5)
 
@@ -123,4 +124,14 @@ for pendente_pos in pendente_occurrences:
         autogui.press('backspace')
         autogui.write('0', interval=0.05)
 
-        exit()
+        # Scroll up
+        time.sleep(0.5)
+        autogui.scroll(500)
+        time.sleep(1)
+
+        # Clica em salvar_2
+        salvar_2_pos = autogui.locateCenterOnScreen(salvar_2_img, confidence=0.9)
+        autogui.moveTo(salvar_2_pos)
+        autogui.click()
+        time.sleep(0.5)
+        autogui.click()
