@@ -19,13 +19,13 @@ desconto_img = "imgs/desconto.png"
 valor_frete_img = "imgs/valor_frete.png"
 salvar_2_img = "imgs/salvar_2.png"
 
-# SCRIPT
-time.sleep(2)
 
 # Lista todos os pendentes encontrados
+time.sleep(2)
 pendente_occurrences = list(autogui.locateAllOnScreen(pendente_img, confidence=0.8))
+
 for pendente_pos in pendente_occurrences:
-    time.sleep(2)
+    time.sleep(3)
     # Clica no icone (pendente)
     centro = autogui.center(pendente_pos)
     autogui.moveTo(centro)
@@ -59,6 +59,8 @@ for pendente_pos in pendente_occurrences:
         # Clica no valor
         valor_pos = autogui.locateCenterOnScreen(valor_img, confidence=0.9)
         autogui.moveTo(valor_pos)
+        autogui.click()
+        time.sleep(0.5)
         autogui.click()
 
         # Copia o valor
