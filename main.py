@@ -22,7 +22,7 @@ salvar_2_img = "imgs/salvar_2.png"
 
 # Lista todos os pendentes encontrados
 time.sleep(2)
-pendente_occurrences = list(autogui.locateAllOnScreen(pendente_img, confidence=0.8))
+pendente_occurrences = list(autogui.locateAllOnScreen(pendente_img, confidence=0.9))
 
 for pendente_pos in pendente_occurrences:
     time.sleep(3)
@@ -54,7 +54,7 @@ for pendente_pos in pendente_occurrences:
         # Digita o NCM
         autogui.hotkey('ctrl', 'a')
         autogui.press('backspace')
-        autogui.write('3926.40.00', interval=0.05)
+        autogui.write('3926.40.00')
 
         # Clica no valor
         valor_pos = autogui.locateCenterOnScreen(valor_img, confidence=0.9)
