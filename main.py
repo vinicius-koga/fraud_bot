@@ -1,4 +1,7 @@
+# run --> python -m venv venv
+# run --> venv\Scripts\activate
 # run --> pip install -r requirements.txt
+# run --> pyinstaller --onefile --add-data "imgs;imgs" --name "sonegator" main.py
 
 import sys, os
 
@@ -7,7 +10,6 @@ def resource_path(relative_path):
     if hasattr(sys, '_MEIPASS'):  # Quando está rodando no .exe
         return os.path.join(sys._MEIPASS, relative_path)
     return os.path.join(relative_path)  # Quando rodando no .py normal
-
 
 # IMPORTS
 import pyautogui as autogui
