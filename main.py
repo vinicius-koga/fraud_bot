@@ -1,33 +1,46 @@
 # run --> pip install -r requirements.txt
 
+import sys, os
+
+def resource_path(relative_path):
+    """Permite acessar arquivos no PyInstaller (tanto no .exe quanto no .py normal)."""
+    if hasattr(sys, '_MEIPASS'):  # Quando está rodando no .exe
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(relative_path)  # Quando rodando no .py normal
+
+
 # IMPORTS
 import pyautogui as autogui
 import pyperclip as clip
 import time
 from pyscreeze import ImageNotFoundException
+import keyboard
 
 # VARIABLES
-pendente_img = "imgs/pendente.png"
-kit_img = "imgs/kit.png"
-ncm_img = "imgs/ncm.png"
-valor_img = "imgs/valor.png"
-icms_img = "imgs/icms.png"
-origem_img = "imgs/origem.png"
-nacional_img = "imgs/nacional.png"
-nacional_2_img = "imgs/nacional_2.png"
-salvar_1_img = "imgs/salvar_1.png"
-desconto_img = "imgs/desconto.png"
-valor_frete_img = "imgs/valor_frete.png"
-salvar_2_img = "imgs/salvar_2.png"
-checkbox_img = "imgs/checkbox.png"
-enviar_nf_img = "imgs/enviar_nf.png"
-enviar_selec_img = "imgs/enviar_selec.png"
-ok_img = "imgs/ok.png"
-nota_img = "imgs/nota.png"
+pendente_img = resource_path("imgs/pendente.png")
+kit_img = resource_path("imgs/kit.png")
+ncm_img = resource_path("imgs/ncm.png")
+valor_img = resource_path("imgs/valor.png")
+icms_img = resource_path("imgs/icms.png")
+origem_img = resource_path("imgs/origem.png")
+nacional_img = resource_path("imgs/nacional.png")
+nacional_2_img = resource_path("imgs/nacional_2.png")
+salvar_1_img = resource_path("imgs/salvar_1.png")
+desconto_img = resource_path("imgs/desconto.png")
+valor_frete_img = resource_path("imgs/valor_frete.png")
+salvar_2_img = resource_path("imgs/salvar_2.png")
+checkbox_img = resource_path("imgs/checkbox.png")
+enviar_nf_img = resource_path("imgs/enviar_nf.png")
+enviar_selec_img = resource_path("imgs/enviar_selec.png")
+ok_img = resource_path("imgs/ok.png")
+nota_img = resource_path("imgs/nota.png")
 
 # Funçao que procura até encontrar todas as ocorrencias do parametro e retorna uma lista contendo todas.
 def find_occurrences(img):
     while True:
+        if keyboard.is_pressed('esc'):
+            print("Execução interrompida pelo usuário.")
+            break
         try:
             ocorrencias = list(autogui.locateAllOnScreen(img, confidence=0.9))
             if ocorrencias:
@@ -40,6 +53,9 @@ def find_occurrences(img):
 # Funçao que procura até encontrar a primeira ocorrencia do parametro e retorna ele.
 def find_occurrence(img):
     while True:
+        if keyboard.is_pressed('esc'):
+            print("Execução interrompida pelo usuário.")
+            break
         try:
             ocorrencia = autogui.locateCenterOnScreen(img, confidence=0.9)
             return ocorrencia
@@ -49,6 +65,9 @@ def find_occurrence(img):
 
 # Lista todos os pendentes encontrados.
 while True:
+    if keyboard.is_pressed('esc'):
+        print("Execução interrompida pelo usuário.")
+        break
     pendente_occurrences = find_occurrences(pendente_img)
     for pendente_pos in pendente_occurrences:
         time.sleep(3)
