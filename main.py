@@ -178,7 +178,7 @@ while True:
         autogui.click()
 
     # Marca as checkboxes
-    time.sleep(2)
+    time.sleep(4)
     checkbox_ocurrences = find_occurrences(checkbox_img)
     for checkbox_pos in checkbox_ocurrences[1:]:
         autogui.moveTo(checkbox_pos)
