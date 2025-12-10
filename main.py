@@ -72,7 +72,7 @@ while True:
         break
     pendente_occurrences = find_occurrences(pendente_img)
     for pendente_pos in pendente_occurrences:
-        time.sleep(3)
+        time.sleep(4)
 
         # Clica no pendente
         autogui.moveTo(pendente_pos)
